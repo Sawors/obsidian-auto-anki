@@ -2,6 +2,8 @@ import { Notice } from 'obsidian';
 import { Configuration, OpenAIApi } from 'openai';
 import { GptAdvancedOptions } from 'src/settings';
 
+let languageIdentifier = "in french"
+
 export interface CardInformation {
     question: string;
     answer: string;
@@ -17,10 +19,10 @@ export function checkGpt(openAiKey: string) {
 }
 
 function createPrompt(notes: string, num: number) {
-    let finalPrompt = 'The following are notes on a specific topic, written in markdown.';
+    let finalPrompt = 'The following are notes ${languageIdentifier} on a specific topic, written in markdown.';
     finalPrompt += `\n${notes.trim()}\n`;
-    finalPrompt += `Based on the information given, make a list of ${num} questions and short answers using the following format:
-    Q: question
+    finalPrompt += `Based on the information given, make a list of ${num} questions with the general topic the notes of in parenthesis and short answers ${languageIdentifier} using the following format:
+    Q: question (topic)
     A: answer`;
     return finalPrompt;
 }
