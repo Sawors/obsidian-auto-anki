@@ -1,5 +1,16 @@
 # Obsidian Auto Anki
 
+---
+## Fork Note
+This fork is an attempt to make this plugin work with other languages than english. Currently my focus is to fully support the french language as an input and output language. However, in theory, the modifications I have made to allow multi-language support should work with any other language.
+
+To change the used language, go to src/utils/gpt.ts and change the `languageIdentifier` variable to any language you desire.
+```typescript
+let languageIdentifier = "in french"
+```
+
+---
+
 Plugin for [Obsidian.md](https://obsidian.md/) that uses OpenAI's GPT LLM to automatically generate Flashcards for Anki.
 
 > The plugin **only works for desktop**.
